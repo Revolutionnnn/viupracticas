@@ -14,10 +14,25 @@
         const VM = Vue.createApp({
             data(){
                 return {
-                    text: "Hola vue"
+                    firstname: "Diana",
+                    lastname: "Fernanadez",
+                    now: new Date()
                 }
             },
-            template: `<div v-text="text"></div>`
+            computed:{
+                    fullname(){
+                        return this.firstname + " " + this.lastname
+                    },
+                    today(){
+                        return this.now.toLocaleDateString()
+                    }
+
+            },
+            template: `
+                <div>{{fullname}}</div>
+                <div>{{firstname}} {{lastname}}</div>
+                <div>{{today}}</div>
+                `
         }).mount("#app")
         console.log(VM)
     </script>

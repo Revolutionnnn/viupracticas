@@ -11,14 +11,15 @@
     <!-- <div id="app">{{ text }}</div> -->
     <div id="app"></div>
     <script>
-        const VM = Vue.createApp({
+        const app = Vue.createApp({
             data(){
                 return {
                     text: "Hola vue"
                 }
             },
             template: `<div v-text="text"></div>`
-        }).mount("#app")
+        })
+        const vm = app.mount("#app")
         console.log(VM)
     </script>
 </body>

@@ -8,7 +8,6 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <!-- <div id="app">{{ text }}</div> -->
     <div id="app"></div>
     <script>
         const VM = Vue.createApp({
@@ -17,9 +16,28 @@
                     text: "Hola vue"
                 }
             },
-            template: `<div v-text="text"></div>`
+
+            template: `
+                        <div v-text="text"></div>
+                        <input 
+                        type="text" 
+                        v-model="text"
+                        />
+                        `
         }).mount("#app")
         console.log(VM)
     </script>
 </body>
 </html>
+
+<!-- Atributos -> :
+Eventos -> @  
+EXAMPLE @input   :value -->
+
+<!-- v-on:input="input" 
+v-bind:value="text" -->
+<!-- methods: {
+    input(e){
+        this.text = e.target.value
+    }
+}, -->

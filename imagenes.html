@@ -8,16 +8,16 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <!-- <div id="app">{{ text }}</div> -->
     <div id="app"></div>
     <script>
         const VM = Vue.createApp({
             data(){
                 return {
-                    text: "Hola vue"
+                    attr: "alt",
+                    img: "https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
                 }
             },
-            template: `<div v-text="text"></div>`
+            template: `<img v-bind:[attr]="img" v-bind:src="img"/>`
         }).mount("#app")
         console.log(VM)
     </script>
