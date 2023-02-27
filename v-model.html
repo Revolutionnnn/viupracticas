@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return {
+                    text: "Hola vue js",
+                }
+            },
+            methods:{
+                input(e){
+                    this.text = e
+                }
+            },
+            template: `
+                    <div>
+                        <p>{{ text }}</p>
+                        <v-input v-bind:value="text" v-on:update="input"/>
+                    </div>`
+        })
+        app.component("v-input", {
+            prop:{
+                value: String
+            },
+            methods:{
+                input(e){
+                    this.$emit("update",e.target.value)
+                }
+            },
+            template: `<input type="text" v-bind:value="text" v-on:input="input" />`
+        })
+        const vm = app.mount("#app")
+
+    </script>
+</body>
+</html>
